@@ -342,7 +342,6 @@
                                                 <p class="mb-0">{{ session('ticket')->description }}</p>
                                             </div>
                                         </div>
-                                        @endif
                                     </div>
                                     @else
                                     <!-- Sample Ticket Status Display (Hidden by default) -->
@@ -403,6 +402,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
