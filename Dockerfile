@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     libpng-dev \
     libonig-dev \
     libxml2-dev \
+    libzip-dev \
     zip \
     unzip \
     nginx \
@@ -17,11 +18,20 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
+# Install PHP extensions (including zip for Composer)
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
 
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Copy PHP configuration FIRST (before composer install)
+COPY docker/php/composer.ini /usr/local/etc/php/conf.d/composer.ini
+
+# Copy composer files first for better caching
+COPY composer.json composer.lock /var/www/html/
+
+# Install composer dependencies (before copying all files)
+RUN composer install --optimize-autoloader --no-dev --no-interaction --no-scripts
 
 # Copy existing application directory contents
 COPY . /var/www/html
@@ -32,12 +42,12 @@ COPY docker/nginx/default.conf /etc/nginx/sites-available/default
 # Copy supervisor configuration
 COPY docker/supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Copy PHP configuration
+# Copy PHP configuration for runtime
 COPY docker/php/local.ini /usr/local/etc/php/conf.d/local.ini
 COPY docker/php/php-fpm.conf /usr/local/etc/php-fpm.d/www.conf
 
-# Install composer dependencies
-RUN composer install --optimize-autoloader --no-dev --no-interaction
+# Run composer scripts after all files are copied
+RUN composer dump-autoload --optimize
 
 # Create necessary directories and set permissions
 RUN mkdir -p /var/www/html/storage/framework/cache \

@@ -3,7 +3,6 @@
 .gitattributes
 .editorconfig
 node_modules
-vendor
 .env
 .env.backup
 .env.example
@@ -15,6 +14,7 @@ yarn-error.log
 *.md
 !README.md
 !DEPLOYMENT.md
+emdeefiles
 tests
 .vscode
 .idea
