@@ -33,6 +33,12 @@ Route::get('/test', function () {
     return view('test');
 })->name('test');
 
+// Health check endpoint for Docker
+Route::get('/health', function () {
+    return response('healthy', 200)
+        ->header('Content-Type', 'text/plain');
+})->name('health');
+
 // Registration Routes
 Route::post('/register/submit', [RegistrationController::class, 'store'])->name('registration.submit');
 Route::get('/registration/success/{registration}', [RegistrationController::class, 'success'])->name('registration.success');
