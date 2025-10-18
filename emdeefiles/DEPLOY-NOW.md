@@ -2,6 +2,30 @@
 
 Your password has been set: `Pa$$w*rd@DanDrev029`
 
+## ⚠️ IMPORTANT: Before Building
+
+### Set Environment Variables
+
+Create a `.env` file in the project root:
+
+```bash
+# Copy the template
+cp .env.docker .env
+
+# Edit the file and set your Cloudflare Tunnel Token
+# Get your token from: https://one.dash.cloudflare.com/
+```
+
+Or set it directly in your shell:
+
+```powershell
+# PowerShell
+$env:CLOUDFLARE_TUNNEL_TOKEN="your_token_here"
+
+# Or add to .env file
+echo "CLOUDFLARE_TUNNEL_TOKEN=your_token_here" > .env
+```
+
 ## ⚡ Deploy in 3 Steps
 
 ### Step 1: Build and Start Services

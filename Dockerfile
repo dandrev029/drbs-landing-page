@@ -36,18 +36,18 @@ RUN composer install --optimize-autoloader --no-dev --no-interaction --no-script
 # Copy existing application directory contents
 COPY . /var/www/html
 
+# Run composer scripts after all files are copied (while composer.ini is still active)
+RUN composer dump-autoload --optimize
+
 # Copy nginx configuration
 COPY docker/nginx/default.conf /etc/nginx/sites-available/default
 
 # Copy supervisor configuration
 COPY docker/supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Copy PHP configuration for runtime
+# Copy PHP configuration for runtime (this will override composer.ini with secure settings)
 COPY docker/php/local.ini /usr/local/etc/php/conf.d/local.ini
 COPY docker/php/php-fpm.conf /usr/local/etc/php-fpm.d/www.conf
-
-# Run composer scripts after all files are copied
-RUN composer dump-autoload --optimize
 
 # Create necessary directories and set permissions
 RUN mkdir -p /var/www/html/storage/framework/cache \
