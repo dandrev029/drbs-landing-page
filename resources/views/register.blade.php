@@ -31,7 +31,6 @@
                 <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item"><a class="nav-link px-3" href="/#plans">Plans</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="/#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="/#coverage">Coverage</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="/#contact">Contact</a></li>
                     <li class="nav-item ms-lg-2"><a class="btn btn-outline-light btn-sm rounded-pill px-4" href="/register">Get Started</a></li>
                     <li class="nav-item ms-lg-2"><a class="btn btn-primary btn-sm rounded-pill px-4" href="/support">Support</a></li>
@@ -202,30 +201,21 @@
                                             </span>
                                             <select class="form-select border-start-0" id="building" name="building" required>
                                                 <option value="">Select your building...</option>
-                                                <option value="building-a">Building A</option>
-                                                <option value="building-b">Building B</option>
-                                                <option value="building-c">Building C</option>
-                                                <option value="skyline-towers">Skyline Towers</option>
-                                                <option value="vista-condos">Vista Condos</option>
-                                                <option value="metro-heights">Metro Heights</option>
-                                                <option value="other">Other (Request Coverage)</option>
+                                                <option value="pcampa-tower-1">P.Campa Tower 1</option>
+                                                <option value="pcampa-tower-2">P.Campa Tower 2</option>
                                             </select>
                                         </div>
-                                        <small class="text-muted">Don't see your building? Select "Other" to request coverage.</small>
+
                                     </div>
 
                                     <div class="row g-3 mt-3">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <label for="floor" class="form-label">Floor <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="floor" name="floor" placeholder="e.g., 5th" required>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <label for="unit" class="form-label">Unit Number <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="unit" name="unit" placeholder="e.g., 501" required>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="tower" class="form-label">Tower/Wing <span class="text-muted">(Optional)</span></label>
-                                            <input type="text" class="form-control" id="tower" name="tower" placeholder="e.g., Tower A">
                                         </div>
                                     </div>
 
@@ -374,7 +364,8 @@
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="agreeMarketing" name="agree_marketing">
+                                                <input type="hidden" name="agree_marketing" value="0">
+                                                <input class="form-check-input" type="checkbox" id="agreeMarketing" name="agree_marketing" value="1">
                                                 <label class="form-check-label" for="agreeMarketing">
                                                     I agree to receive promotional emails and updates
                                                 </label>
@@ -490,7 +481,6 @@
                     <ul class="list-unstyled footer-links">
                         <li><a href="/#plans">Plans</a></li>
                         <li><a href="/#about">About Us</a></li>
-                        <li><a href="/#coverage">Coverage</a></li>
                         <li><a href="/#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -500,14 +490,13 @@
                         <li><a href="/register">Registration</a></li>
                         <li><a href="/support">Support</a></li>
                         <li><a href="/#plans">Internet Plans</a></li>
-                        <li><a href="/#coverage">Coverage Check</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <h6 class="fw-bold mb-4">Contact Info</h6>
                     <ul class="list-unstyled footer-links">
-                        <li><i class="bi bi-telephone me-2"></i>+1-234-567-890</li>
-                        <li><i class="bi bi-envelope me-2"></i>support@drbsinternet.com</li>
+                        <li><i class="bi bi-telephone me-2"></i>+639534953231</li>
+                        <li><i class="bi bi-envelope me-2"></i>therandombytesolution@gmail.com</li>
                         <li><i class="bi bi-clock me-2"></i>24/7 Customer Support</li>
                     </ul>
                 </div>

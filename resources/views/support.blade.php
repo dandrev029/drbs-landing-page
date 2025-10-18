@@ -31,7 +31,6 @@
                 <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item"><a class="nav-link px-3" href="/#plans">Plans</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="/#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="/#coverage">Coverage</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="/#contact">Contact</a></li>
                     <li class="nav-item ms-lg-2"><a class="btn btn-outline-light btn-sm rounded-pill px-4" href="/register">Get Started</a></li>
                     <li class="nav-item ms-lg-2"><a class="btn btn-primary btn-sm rounded-pill px-4" href="/support">Support</a></li>
@@ -68,7 +67,7 @@
                         </div>
                         <h6 class="fw-bold mb-2">Call Us</h6>
                         <p class="text-muted small mb-3">Available 24/7</p>
-                        <a href="tel:+1234567890" class="btn btn-outline-primary btn-sm rounded-pill">+1-234-567-890</a>
+                        <a href="tel:+639534953231" class="btn btn-outline-primary btn-sm rounded-pill">+639534953231</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
@@ -78,7 +77,7 @@
                         </div>
                         <h6 class="fw-bold mb-2">Email Us</h6>
                         <p class="text-muted small mb-3">Response within 2 hours</p>
-                        <a href="mailto:support@drbsinternet.com" class="btn btn-outline-success btn-sm rounded-pill">Send Email</a>
+                        <a href="mailto:therandombytesolution@gmail.com" class="btn btn-outline-success btn-sm rounded-pill">Send Email</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
@@ -88,17 +87,17 @@
                         </div>
                         <h6 class="fw-bold mb-2">Live Chat</h6>
                         <p class="text-muted small mb-3">Instant support</p>
-                        <button class="btn btn-outline-info btn-sm rounded-pill" onclick="openChat()">Start Chat</button>
+                        <a href="https://t.me/CampaSupport_bot" target="_blank" class="btn btn-outline-info btn-sm rounded-pill">Start Chat</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="support-quick-card text-center">
                         <div class="support-icon mb-3">
-                            <i class="bi bi-whatsapp text-success"></i>
+                            <i class="bi bi-chat-fill text-success"></i>
                         </div>
-                        <h6 class="fw-bold mb-2">WhatsApp</h6>
+                        <h6 class="fw-bold mb-2">Viber</h6>
                         <p class="text-muted small mb-3">Quick messaging</p>
-                        <a href="https://wa.me/1234567890" target="_blank" class="btn btn-outline-success btn-sm rounded-pill">Message Us</a>
+                        <a href="viber://chat?number=+639519103428" class="btn btn-outline-success btn-sm rounded-pill">Message Us</a>
                     </div>
                 </div>
             </div>
@@ -419,8 +418,8 @@
                                     <i class="bi bi-exclamation-triangle-fill fs-1 mb-3"></i>
                                     <h5 class="fw-bold mb-3">Emergency Support</h5>
                                     <p class="small mb-4">For urgent service outages or critical issues, call us immediately:</p>
-                                    <a href="tel:+1234567890" class="btn btn-light btn-lg w-100 mb-3">
-                                        <i class="bi bi-telephone-fill me-2"></i>+1-234-567-890
+                                    <a href="tel:+639534953231" class="btn btn-light btn-lg w-100 mb-3">
+                                        <i class="bi bi-telephone-fill me-2"></i>+639534953231
                                     </a>
                                     <p class="small mb-0">Available 24/7</p>
                                 </div>
@@ -469,7 +468,7 @@
                                         <strong>24/7</strong>
                                     </div>
                                     <div class="d-flex justify-content-between">
-                                        <span class="text-muted">WhatsApp</span>
+                                        <span class="text-muted">Viber</span>
                                         <strong>24/7</strong>
                                     </div>
                                 </div>
@@ -564,7 +563,7 @@
                             </h2>
                             <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Yes! You can change your plan anytime. Simply submit a support ticket or call us at +1-234-567-890.
+                                    Yes! You can change your plan anytime. Simply submit a support ticket or call us at +639534953231.
                                     Plan changes take effect on your next billing cycle. Note that equipment changes may be required for upgrades,
                                     and installation fees may apply.
                                 </div>
@@ -583,7 +582,7 @@
                                     We're sorry to see you go! To cancel your subscription:
                                     <ol>
                                         <li>Submit a support ticket with category "Service Cancellation"</li>
-                                        <li>Call us at +1-234-567-890 to speak with a representative</li>
+                                        <li>Call us at +639534953231 to speak with a representative</li>
                                         <li>Provide at least 30 days notice before your desired cancellation date</li>
                                         <li>Return any rented equipment within 7 days</li>
                                     </ol>
@@ -619,7 +618,6 @@
                     <ul class="list-unstyled footer-links">
                         <li><a href="/#plans">Plans</a></li>
                         <li><a href="/#about">About Us</a></li>
-                        <li><a href="/#coverage">Coverage</a></li>
                         <li><a href="/#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -629,14 +627,13 @@
                         <li><a href="/register">Registration</a></li>
                         <li><a href="/support">Support</a></li>
                         <li><a href="/#plans">Internet Plans</a></li>
-                        <li><a href="/#coverage">Coverage Check</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <h6 class="fw-bold mb-4">Contact Info</h6>
                     <ul class="list-unstyled footer-links">
-                        <li><i class="bi bi-telephone me-2"></i>+1-234-567-890</li>
-                        <li><i class="bi bi-envelope me-2"></i>support@drbsinternet.com</li>
+                        <li><i class="bi bi-telephone me-2"></i>+639534953231</li>
+                        <li><i class="bi bi-envelope me-2"></i>therandombytesolution@gmail.com</li>
                         <li><i class="bi bi-clock me-2"></i>24/7 Customer Support</li>
                     </ul>
                 </div>

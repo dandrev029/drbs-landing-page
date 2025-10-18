@@ -73,7 +73,7 @@
                 <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item"><a class="nav-link px-3" href="#plans">Plans</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#coverage">Coverage</a></li>
+
                     <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
                     <li class="nav-item ms-lg-2"><a class="btn btn-outline-light btn-sm rounded-pill px-4" href="/register">Get Started</a></li>
                     <li class="nav-item ms-lg-2"><a class="btn btn-primary btn-sm rounded-pill px-4" href="/support">Support</a></li>
@@ -203,6 +203,7 @@
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>10 Mbps Speed</li>
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>3-Day Free Trial</li>
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Unlimited Data</li>
+                                <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>No Device Limits</li>
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>24/7 Support</li>
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>₱600 Installation</li>
                             </ul>
@@ -216,8 +217,10 @@
                 <!-- Plan 2 - Popular -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="pricing-card pricing-card-popular h-100">
-                        <div class="popular-badge">
-                            <span>MOST POPULAR</span>
+                        <div class="popular-banner text-white text-center py-2" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin: -1px -1px 0 -1px; border-radius: 18px 18px 0 0;">
+                            <i class="bi bi-star-fill me-2"></i>
+                            <strong>MOST POPULAR CHOICE</strong>
+                            <i class="bi bi-star-fill ms-2"></i>
                         </div>
                         <div class="card-body p-4">
                             <div class="plan-badge mb-3">
@@ -232,6 +235,7 @@
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>25 Mbps Speed</li>
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>3-Day Free Trial</li>
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Unlimited Data</li>
+                                <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>No Device Limits</li>
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Priority Support</li>
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>₱600 Installation</li>
                             </ul>
@@ -258,6 +262,7 @@
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>50 Mbps Speed</li>
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>3-Day Free Trial</li>
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Unlimited Data</li>
+                                <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>No Device Limits</li>
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>VIP Support</li>
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>₱600 Installation</li>
                             </ul>
@@ -338,11 +343,11 @@
                             <p class="mb-4">"Switched to DRBS after years of frustration with other providers. The speed is consistent, and their support team actually cares. Best decision ever!"</p>
                             <div class="d-flex align-items-center">
                                 <div class="avatar me-3">
-                                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=0D8ABC&color=fff" alt="John Doe" class="rounded-circle" width="50">
+                                    <img src="https://ui-avatars.com/api/?name=Mary+Rochelle+Joyce+Alvarico&background=0D8ABC&color=fff" alt="Mary Rochelle Joyce Alvarico" class="rounded-circle" width="50">
                                 </div>
                                 <div>
-                                    <h6 class="fw-bold mb-0">John Doe</h6>
-                                    <small class="text-muted">Building A, Unit 501</small>
+                                    <h6 class="fw-bold mb-0">Mary Rochelle Joyce Alvarico</h6>
+                                    <small class="text-muted">Unit 515 Tower 1</small>
                                 </div>
                             </div>
                         </div>
@@ -359,11 +364,11 @@
                             <p class="mb-4">"Perfect for working from home! Video calls are crystal clear, and I've never experienced any downtime. The free trial convinced me immediately."</p>
                             <div class="d-flex align-items-center">
                                 <div class="avatar me-3">
-                                    <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=6610f2&color=fff" alt="Jane Smith" class="rounded-circle" width="50">
+                                    <img src="https://ui-avatars.com/api/?name=Mohammad+Jamahali+Sezen&background=6610f2&color=fff" alt="Mohammad Jamahali Sezen" class="rounded-circle" width="50">
                                 </div>
                                 <div>
-                                    <h6 class="fw-bold mb-0">Jane Smith</h6>
-                                    <small class="text-muted">Building B, Unit 302</small>
+                                    <h6 class="fw-bold mb-0">Mohammad Jamahali Sezen</h6>
+                                    <small class="text-muted">Unit 516 Tower 1</small>
                                 </div>
                             </div>
                         </div>
@@ -380,84 +385,14 @@
                             <p class="mb-4">"Finally, an internet provider that understands condo living! Fast installation, great pricing, and the customer service is top-notch."</p>
                             <div class="d-flex align-items-center">
                                 <div class="avatar me-3">
-                                    <img src="https://ui-avatars.com/api/?name=Peter+Jones&background=dc3545&color=fff" alt="Peter Jones" class="rounded-circle" width="50">
+                                    <img src="https://ui-avatars.com/api/?name=Breeana+Valdez&background=dc3545&color=fff" alt="Breeana Valdez" class="rounded-circle" width="50">
                                 </div>
                                 <div>
-                                    <h6 class="fw-bold mb-0">Peter Jones</h6>
-                                    <small class="text-muted">Building C, Unit 701</small>
+                                    <h6 class="fw-bold mb-0">Breeana Valdez</h6>
+                                    <small class="text-muted">Unit 1002 Tower 1</small>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Coverage Checker -->
-    <section id="coverage" class="py-5">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center" data-aos="fade-up">
-                    <span class="badge bg-primary-soft text-primary mb-3 px-4 py-2 rounded-pill">COVERAGE</span>
-                    <h2 class="display-5 fw-bold mb-4">Check If We're In Your Area</h2>
-                    <p class="lead text-muted mb-5">Enter your building name to see if DRBS Internet is available</p>
-
-                    <div class="coverage-search-box mb-5">
-                        <form class="row g-3 justify-content-center">
-                            <div class="col-md-8">
-                                <div class="input-group input-group-lg shadow-sm">
-                                    <span class="input-group-text bg-white border-end-0">
-                                        <i class="bi bi-search"></i>
-                                    </span>
-                                    <input type="text" class="form-control border-start-0 ps-0" placeholder="Enter your condominium or building name" aria-label="Search coverage">
-                                    <button class="btn btn-primary px-5" type="submit">Check Coverage</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="coverage-list mt-5">
-                        <h5 class="fw-bold mb-4">Currently Serving</h5>
-                        <div class="row g-3">
-                            <div class="col-md-4">
-                                <div class="coverage-badge">
-                                    <i class="bi bi-building-check text-success me-2"></i>
-                                    <span>Building A</span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="coverage-badge">
-                                    <i class="bi bi-building-check text-success me-2"></i>
-                                    <span>Building B</span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="coverage-badge">
-                                    <i class="bi bi-building-check text-success me-2"></i>
-                                    <span>Building C</span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="coverage-badge">
-                                    <i class="bi bi-building-check text-success me-2"></i>
-                                    <span>Skyline Towers</span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="coverage-badge">
-                                    <i class="bi bi-building-check text-success me-2"></i>
-                                    <span>Vista Condos</span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="coverage-badge">
-                                    <i class="bi bi-building-check text-success me-2"></i>
-                                    <span>Metro Heights</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-muted mt-4">Don't see your building? <a href="/register" class="text-decoration-none fw-medium">Request coverage in your area</a></p>
                     </div>
                 </div>
             </div>
@@ -480,7 +415,7 @@
                         </div>
                         <h5 class="fw-bold mb-3">Phone</h5>
                         <p class="text-muted mb-2">Call us anytime</p>
-                        <a href="tel:+1234567890" class="contact-link">+1-234-567-890</a>
+                        <a href="tel:+639534953231" class="contact-link">+639534953231</a>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
@@ -490,7 +425,7 @@
                         </div>
                         <h5 class="fw-bold mb-3">Email</h5>
                         <p class="text-muted mb-2">Drop us a line</p>
-                        <a href="mailto:support@drbsinternet.com" class="contact-link">support@drbsinternet.com</a>
+                        <a href="mailto:therandombytesolution@gmail.com" class="contact-link">therandombytesolution@gmail.com</a>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
@@ -498,12 +433,11 @@
                         <div class="contact-icon">
                             <i class="bi bi-chat-dots-fill"></i>
                         </div>
-                        <h5 class="fw-bold mb-3">Social Media</h5>
-                        <p class="text-muted mb-2">Connect with us</p>
-                        <div class="social-links">
-                            <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="social-link"><i class="bi bi-telegram"></i></a>
-                            <a href="#" class="social-link"><i class="bi bi-whatsapp"></i></a>
+                        <h5 class="fw-bold mb-3">Live Chat</h5>
+                        <p class="text-muted mb-2">Chat with us instantly</p>
+                        <div class="social-links d-flex justify-content-center">
+                            <a href="https://t.me/CampaSupport_bot" target="_blank" class="social-link" title="Telegram"><i class="bi bi-telegram"></i></a>
+                            <a href="viber://chat?number=+639519103428" class="social-link" title="Viber"><i class="bi bi-chat-fill"></i></a>
                         </div>
                     </div>
                 </div>
@@ -553,7 +487,7 @@
                     <ul class="list-unstyled footer-links">
                         <li><a href="#plans">Plans</a></li>
                         <li><a href="#about">About Us</a></li>
-                        <li><a href="#coverage">Coverage</a></li>
+
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -563,14 +497,14 @@
                         <li><a href="/register">Registration</a></li>
                         <li><a href="/support">Support</a></li>
                         <li><a href="#plans">Internet Plans</a></li>
-                        <li><a href="#coverage">Coverage Check</a></li>
+
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <h6 class="fw-bold mb-4">Contact Info</h6>
                     <ul class="list-unstyled footer-links">
-                        <li><i class="bi bi-telephone me-2"></i>+1-234-567-890</li>
-                        <li><i class="bi bi-envelope me-2"></i>support@drbsinternet.com</li>
+                        <li><i class="bi bi-telephone me-2"></i>+639534953231</li>
+                        <li><i class="bi bi-envelope me-2"></i>therandombytesolution@gmail.com</li>
                         <li><i class="bi bi-clock me-2"></i>24/7 Customer Support</li>
                     </ul>
                 </div>

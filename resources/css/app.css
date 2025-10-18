@@ -351,17 +351,39 @@ body {
     transform: scaleX(1);
 }
 
-.popular-badge {
-    position: absolute;
-    top: 20px;
-    right: -35px;
-    background: var(--gradient-primary);
-    color: white;
-    padding: 5px 40px;
-    transform: rotate(45deg);
-    font-size: 0.75rem;
+.popular-banner {
+    font-size: 0.85rem;
     font-weight: 700;
-    box-shadow: var(--shadow);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%,
+    100% {
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(102, 126, 234, 0.6);
+    }
+}
+
+.popular-banner i {
+    animation: twinkle 1.5s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
 }
 
 .price-wrapper {
@@ -494,6 +516,11 @@ body {
     overflow: hidden;
 }
 
+.cta-section .container {
+    position: relative;
+    z-index: 1;
+}
+
 .cta-section::before {
     content: "";
     position: absolute;
@@ -505,6 +532,7 @@ body {
         no-repeat center center;
     background-size: cover;
     opacity: 0.1;
+    pointer-events: none;
 }
 
 /* =====================================================
