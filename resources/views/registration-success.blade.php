@@ -4,22 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Success - DRBS Internet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @vite(['resources/css/app.css', 'resources/css/crypto-theme.css'])
     <style>
+        body {
+            font-family: 'Poppins', 'Inter', -apple-system, sans-serif !important;
+        }
         .success-container {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #0c0c2b;
             padding: 2rem 0;
         }
         .success-card {
-            background: white;
+            background: #1a1a3e;
+            border: 1px solid rgba(213, 255, 64, 0.2);
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             max-width: 600px;
             width: 100%;
             margin: 0 1rem;
@@ -27,17 +34,18 @@
         .success-icon {
             width: 100px;
             height: 100px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: rgba(213, 255, 64, 0.15);
+            border: 3px solid #d5ff40;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: -50px auto 0;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 30px rgba(213, 255, 64, 0.4);
         }
         .success-icon i {
             font-size: 3rem;
-            color: white;
+            color: #d5ff40;
             animation: checkmark 0.6s ease-in-out;
         }
         @keyframes checkmark {
@@ -54,7 +62,7 @@
             }
         }
         .registration-number {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d5ff40 0%, #b8e030 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -64,21 +72,51 @@
         }
         .info-item {
             padding: 1rem;
-            background: #f8f9fa;
+            background: rgba(213, 255, 64, 0.05);
+            border: 1px solid rgba(213, 255, 64, 0.1);
             border-radius: 10px;
             margin-bottom: 0.75rem;
         }
         .info-label {
             font-weight: 600;
-            color: #6c757d;
+            color: #8a8a9e;
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
         .info-value {
-            color: #212529;
+            color: #ffffff;
             font-size: 1rem;
             margin-top: 0.25rem;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #ffffff !important;
+        }
+        .text-muted {
+            color: #c0c2bb !important;
+        }
+        .alert-success {
+            background: rgba(213, 255, 64, 0.1);
+            border: 1px solid rgba(213, 255, 64, 0.3);
+            color: #ffffff;
+        }
+        .btn-primary {
+            background: #d5ff40;
+            border: none;
+            color: #0c0c2b;
+            font-weight: 700;
+        }
+        .btn-primary:hover {
+            background: #e5ff70;
+            color: #0c0c2b;
+        }
+        .btn-outline-primary {
+            border: 2px solid #d5ff40;
+            color: #d5ff40;
+        }
+        .btn-outline-primary:hover {
+            background: #d5ff40;
+            color: #0c0c2b;
         }
     </style>
 </head>

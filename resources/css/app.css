@@ -17,9 +17,9 @@
     --info-color: #0dcaf0;
     --light-color: #f8f9fa;
     --dark-color: #212529;
-    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --gradient-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --gradient-primary: linear-gradient(135deg, #d5ff40 0%, #b8e030 100%);
+    --gradient-secondary: linear-gradient(135deg, #d5ff40 0%, #e5ff70 100%);
+    --gradient-success: linear-gradient(135deg, #d5ff40 0%, #b8e030 100%);
     --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
@@ -115,7 +115,7 @@ body {
 .hero-section {
     position: relative;
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #0c0c2b;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -251,7 +251,7 @@ body {
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    background: #e5ff70;
 }
 
 .btn-outline-light:hover {
