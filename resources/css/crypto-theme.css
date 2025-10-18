@@ -74,13 +74,17 @@ div {
     background: transparent !important;
     border-bottom: 1px solid rgba(213, 255, 64, 0.05);
     backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 1rem 0;
 }
 
 .navbar-scrolled {
     background: rgba(12, 12, 43, 0.95) !important;
     backdrop-filter: blur(20px);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6),
+                0 0 20px rgba(213, 255, 64, 0.1);
     border-bottom: 1px solid var(--border-subtle);
+    padding: 0.5rem 0;
 }
 
 .navbar-brand {
@@ -103,15 +107,29 @@ div {
     color: var(--text-gray) !important;
     font-weight: 500;
     transition: var(--transition);
+    position: relative;
+    padding: 0.5rem 1rem !important;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--primary-green);
+    box-shadow: 0 0 10px var(--primary-green);
+    transition: width 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
     color: var(--primary-green) !important;
 }
 
-.navbar-nav .nav-link::after {
-    background: var(--primary-green);
-    box-shadow: 0 0 10px var(--primary-green);
+.navbar-nav .nav-link:hover::after {
+    width: 80%;
 }
 
 /* =====================================================
@@ -136,8 +154,14 @@ div {
 
 .btn-primary:hover {
     background: var(--primary-green-light) !important;
-    box-shadow: 0 6px 30px rgba(213, 255, 64, 0.5);
-    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(213, 255, 64, 0.5),
+                0 0 40px rgba(213, 255, 64, 0.3);
+    transform: translateY(-3px) scale(1.02);
+}
+
+.btn-primary:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 3px 15px rgba(213, 255, 64, 0.4);
 }
 
 .btn-outline-light {
@@ -150,8 +174,14 @@ div {
 .btn-outline-light:hover {
     background: var(--primary-green) !important;
     color: var(--dark-bg) !important;
-    box-shadow: 0 4px 20px rgba(213, 255, 64, 0.4);
-    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(213, 255, 64, 0.4),
+                0 0 30px rgba(213, 255, 64, 0.2);
+    transform: translateY(-3px) scale(1.02);
+}
+
+.btn-outline-light:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 2px 10px rgba(213, 255, 64, 0.3);
 }
 
 .btn-lg {
@@ -213,6 +243,17 @@ div {
     font-weight: 600;
     padding: 0.5rem 1.5rem;
     border-radius: 50px;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero-section .badge:hover {
+    background: rgba(213, 255, 64, 0.25) !important;
+    border-color: rgba(213, 255, 64, 0.5);
+    box-shadow: 0 4px 15px rgba(213, 255, 64, 0.3);
+    transform: translateY(-2px);
 }
 
 .hero-section h1 {
@@ -236,23 +277,72 @@ div {
     color: var(--text-gray) !important;
 }
 
+.stat-item {
+    padding: 1rem;
+    border-radius: 12px;
+    transition: var(--transition);
+    cursor: default;
+}
+
+.stat-item:hover {
+    background: rgba(213, 255, 64, 0.05);
+    transform: translateY(-5px);
+}
+
 .stat-item h3 {
     color: var(--primary-green) !important;
     font-weight: 700;
     font-size: 2.5rem;
+    text-shadow: 0 0 20px rgba(213, 255, 64, 0.3);
+    transition: var(--transition);
+}
+
+.stat-item:hover h3 {
+    text-shadow: 0 0 30px rgba(213, 255, 64, 0.5);
+    transform: scale(1.1);
 }
 
 .stat-item p {
     color: var(--text-muted) !important;
     font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.stat-item:hover p {
+    color: var(--text-gray) !important;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
 }
 
 .scroll-indicator a {
     color: var(--primary-green) !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--primary-green);
+    border-radius: 50%;
+    transition: var(--transition);
+    background: rgba(12, 12, 43, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.scroll-indicator a:hover {
+    background: var(--primary-green);
+    color: var(--dark-bg) !important;
+    box-shadow: 0 0 30px rgba(213, 255, 64, 0.6);
+    transform: scale(1.1);
 }
 
 .scroll-indicator i {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 /* =====================================================
@@ -337,7 +427,7 @@ section p {
         0 20px 40px rgba(0, 0, 0, 0.5),
         0 0 30px rgba(213, 255, 64, 0.15);
     background: var(--dark-card-hover) !important;
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(1.02);
 }
 
 .feature-card:hover::before {
@@ -397,6 +487,11 @@ section p {
     overflow: hidden;
 }
 
+.pricing-card .card-body {
+    position: relative;
+    z-index: 1;
+}
+
 .pricing-card::before {
     content: "";
     position: absolute;
@@ -411,6 +506,8 @@ section p {
     );
     opacity: 0;
     transition: var(--transition);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .pricing-card:hover {
@@ -516,6 +613,10 @@ section p {
     padding: 2.5rem;
     transition: var(--transition);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .contact-card:hover {
@@ -558,24 +659,38 @@ section p {
 .contact-card h5 {
     color: var(--text-light) !important;
     font-weight: 600;
+    margin-bottom: 1rem;
 }
 
 .contact-card p {
     color: var(--text-gray) !important;
+    margin-bottom: 1rem;
+    min-height: 24px;
 }
 
 .contact-link {
     color: var(--primary-green) !important;
     font-weight: 600;
+    word-break: break-all;
+    display: inline-block;
+    max-width: 100%;
+    line-height: 1.5;
+    text-align: center;
 }
 
 .contact-link:hover {
     color: var(--primary-green-light) !important;
+    text-decoration: underline;
 }
 
 /* =====================================================
    SOCIAL LINKS
    ===================================================== */
+
+.social-links {
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
 
 .social-link {
     width: 45px;
@@ -994,6 +1109,133 @@ section p {
     }
 }
 
+/* Advanced Gradient Animation */
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.text-gradient {
+    background: linear-gradient(
+        270deg,
+        var(--primary-green),
+        var(--primary-green-light),
+        var(--primary-green),
+        #fff
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 8s ease infinite;
+}
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Scale In Animation */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Shimmer Effect */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.shimmer {
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(213, 255, 64, 0.2) 50%,
+        transparent 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 3s infinite;
+}
+
+/* Glow Animation */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(213, 255, 64, 0.3),
+                    0 0 40px rgba(213, 255, 64, 0.2),
+                    0 0 60px rgba(213, 255, 64, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(213, 255, 64, 0.5),
+                    0 0 60px rgba(213, 255, 64, 0.3),
+                    0 0 90px rgba(213, 255, 64, 0.2);
+    }
+}
+
+.animate-glow {
+    animation: glow 3s ease-in-out infinite;
+}
+
+/* Rotate Animation */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-rotate {
+    animation: rotate 20s linear infinite;
+}
+
 /* =====================================================
    SCROLLBAR STYLING
    ===================================================== */
@@ -1088,6 +1330,24 @@ section p {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Common Issues Card */
+.card .list-group-item,
+.list-group-item {
+    background: var(--dark-card) !important;
+    border: 1px solid var(--border-subtle) !important;
+    color: var(--text-light) !important;
+}
+
+.list-group-item:hover {
+    background: var(--dark-card-hover) !important;
+    border-color: var(--primary-green) !important;
+}
+
+.list-group-item i,
+.list-group-item::before {
+    color: var(--primary-green) !important;
+}
+
 /* =====================================================
    RESPONSIVE DESIGN
    ===================================================== */
@@ -1117,13 +1377,32 @@ section p {
     .stat-item {
         margin-bottom: 1.5rem;
     }
+    
+    .stat-item h3 {
+        font-size: 2rem !important;
+    }
 
     .btn {
         padding: 0.65rem 1.5rem !important;
+        font-size: 0.9rem !important;
     }
 
     .btn-lg {
         padding: 0.875rem 2rem !important;
+        font-size: 0.95rem !important;
+    }
+    
+    .scroll-indicator {
+        bottom: 20px;
+    }
+    
+    .scroll-indicator a {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .scroll-indicator i {
+        font-size: 1.2rem;
     }
 }
 

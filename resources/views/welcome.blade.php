@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DRBS Internet - Reliable Internet Provider</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/drbs-logo-small.png') }}">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,7 +67,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="/">
-                <i class="bi bi-wifi me-2 fs-4"></i>
+                <img src="{{ asset('images/drbs-logo-small.png') }}" alt="DRBS Logo" style="height: 40px; width: 40px; object-fit: contain;" class="me-2" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                <i class="bi bi-wifi me-2 fs-4" style="display: none;"></i>
                 <span class="fw-bold">DRBS Internet</span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,37 +89,40 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
+        <!-- Particle Background Canvas -->
+        <canvas id="particles-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></canvas>
+        
         <div class="hero-overlay"></div>
-        <div class="container position-relative">
+        <div class="container position-relative" style="z-index: 2;">
             <div class="row align-items-center min-vh-100">
                 <div class="col-lg-8 mx-auto text-center">
-                    <div class="hero-content" data-aos="fade-up">
-                        <span class="badge bg-primary-gradient mb-3 px-4 py-2 rounded-pill">
+                    <div class="hero-content">
+                        <span class="badge bg-primary-gradient mb-3 px-4 py-2 rounded-pill fade-in-up" style="animation-delay: 0.1s;">
                             <i class="bi bi-lightning-charge-fill me-2"></i>KEEP YOUR CONNECTION SAFE
                         </span>
-                        <h1 class="display-2 fw-bold text-white mb-4">
+                        <h1 class="display-2 fw-bold text-white mb-4 fade-in-up" style="animation-delay: 0.2s;">
                             Best Internet<br>
                             <span class="text-gradient">Platform for Your Future.</span>
                         </h1>
-                        <p class="lead text-white-50 mb-5 fs-4">
+                        <p class="lead text-white-50 mb-5 fs-4 fade-in-up" style="animation-delay: 0.3s;">
                             Experience blazing-fast connectivity tailored for modern living.<br>
-                            Join thousands of satisfied users in the digital revolution.
+                            Join hundreds of satisfied users in the digital revolution.
                         </p>
-                        <div class="d-flex gap-3 justify-content-center flex-wrap">
-                            <a href="/register" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">
+                        <div class="d-flex gap-3 justify-content-center flex-wrap fade-in-up" style="animation-delay: 0.4s;">
+                            <a href="/register" class="btn btn-primary btn-lg px-5 py-3 rounded-pill animate-glow">
                                 <i class="bi bi-rocket-takeoff me-2"></i>EXPLORE NOW
                             </a>
                             <a href="#plans" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">
                                 <i class="bi bi-grid-3x3-gap me-2"></i>VIEW PLANS
                             </a>
                         </div>
-                        <div class="mt-5 d-flex justify-content-center gap-5 flex-wrap">
+                        <div class="mt-5 d-flex justify-content-center gap-5 flex-wrap fade-in-up" style="animation-delay: 0.5s;">
                             <div class="stat-item">
-                                <h3 class="text-white fw-bold mb-0">5000+</h3>
+                                <h3 class="text-white fw-bold mb-0 counter" data-target="250">0</h3>
                                 <p class="text-white-50 mb-0">Active Users</p>
                             </div>
                             <div class="stat-item">
-                                <h3 class="text-white fw-bold mb-0">99.9%</h3>
+                                <h3 class="text-white fw-bold mb-0"><span class="counter" data-target="99">0</span>.9%</h3>
                                 <p class="text-white-50 mb-0">Network Uptime</p>
                             </div>
                             <div class="stat-item">
@@ -127,9 +134,9 @@
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
+        <div class="scroll-indicator" style="z-index: 2;">
             <a href="#plans" class="text-white">
-                <i class="bi bi-chevron-down animate-bounce"></i>
+                <i class="bi bi-chevron-down animate-bounce animate-pulse"></i>
             </a>
         </div>
     </section>
@@ -409,8 +416,8 @@
                 <p class="lead text-muted">We're here to help. Reach out through any channel.</p>
             </div>
             <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
-                    <div class="contact-card">
+                <div class="col-md-4 d-flex" data-aos="fade-up" data-aos-delay="0">
+                    <div class="contact-card h-100 w-100">
                         <div class="contact-icon">
                             <i class="bi bi-telephone-fill"></i>
                         </div>
@@ -419,8 +426,8 @@
                         <a href="tel:+639534953231" class="contact-link">+639534953231</a>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="contact-card">
+                <div class="col-md-4 d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-card h-100 w-100">
                         <div class="contact-icon">
                             <i class="bi bi-envelope-fill"></i>
                         </div>
@@ -429,8 +436,8 @@
                         <a href="mailto:therandombytesolution@gmail.com" class="contact-link">therandombytesolution@gmail.com</a>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="contact-card">
+                <div class="col-md-4 d-flex" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-card h-100 w-100">
                         <div class="contact-icon">
                             <i class="bi bi-chat-dots-fill"></i>
                         </div>
@@ -452,7 +459,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center" data-aos="zoom-in">
                     <h2 class="display-4 fw-bold text-white mb-4">Ready to Get Started?</h2>
-                    <p class="lead text-white-50 mb-5">Join thousands of satisfied customers enjoying fast, reliable internet. Try us risk-free for 3 days!</p>
+                    <p class="lead text-white-50 mb-5">Join hundreds of satisfied customers enjoying fast, reliable internet. Try us risk-free for 3 days!</p>
                     <div class="d-flex gap-3 justify-content-center flex-wrap">
                         <a href="/register" class="btn btn-light btn-lg px-5 py-3 rounded-pill">
                             <i class="bi bi-rocket-takeoff me-2"></i>Start Free Trial
@@ -471,8 +478,9 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
-                    <div class="footer-brand mb-4">
-                        <i class="bi bi-wifi me-2 fs-4"></i>
+                    <div class="footer-brand mb-4 d-flex align-items-center">
+                        <img src="{{ asset('images/drbs-logo-small.png') }}" alt="DRBS Logo" style="height: 40px; width: 40px; object-fit: contain;" class="me-2" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                        <i class="bi bi-wifi me-2 fs-4" style="display: none;"></i>
                         <span class="fw-bold fs-5">DRBS Internet</span>
                     </div>
                     <p class="text-muted mb-4">Connecting communities with fast, reliable, and affordable internet services designed for modern living.</p>
@@ -526,13 +534,161 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <!-- Smooth Scroll -->
+    <!-- Enhanced JavaScript -->
     <script>
         // Enable animations after page loads
         window.addEventListener('DOMContentLoaded', function() {
             document.body.classList.add('loaded');
+            initParticles();
+            initCounters();
+            initScrollAnimations();
         });
 
+        // Particle Background Animation
+        function initParticles() {
+            const canvas = document.getElementById('particles-canvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let animationFrameId;
+
+            function resizeCanvas() {
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 0.5;
+                    this.speedX = Math.random() * 0.5 - 0.25;
+                    this.speedY = Math.random() * 0.5 - 0.25;
+                    this.opacity = Math.random() * 0.5 + 0.2;
+                }
+
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+
+                    if (this.x > canvas.width) this.x = 0;
+                    if (this.x < 0) this.x = canvas.width;
+                    if (this.y > canvas.height) this.y = 0;
+                    if (this.y < 0) this.y = canvas.height;
+                }
+
+                draw() {
+                    ctx.fillStyle = `rgba(213, 255, 64, ${this.opacity})`;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            function createParticles() {
+                const particleCount = Math.min(Math.floor(canvas.width / 10), 100);
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+
+                // Draw connections
+                particles.forEach((particle, i) => {
+                    particles.slice(i + 1).forEach(otherParticle => {
+                        const dx = particle.x - otherParticle.x;
+                        const dy = particle.y - otherParticle.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < 100) {
+                            ctx.strokeStyle = `rgba(213, 255, 64, ${0.15 * (1 - distance / 100)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.beginPath();
+                            ctx.moveTo(particle.x, particle.y);
+                            ctx.lineTo(otherParticle.x, otherParticle.y);
+                            ctx.stroke();
+                        }
+                    });
+                });
+
+                animationFrameId = requestAnimationFrame(animateParticles);
+            }
+
+            createParticles();
+            animateParticles();
+        }
+
+        // Counter Animation
+        function initCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200; // Animation speed
+
+            const animateCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                const increment = target / speed;
+                let count = 0;
+
+                const updateCount = () => {
+                    count += increment;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count);
+                        setTimeout(updateCount, 10);
+                    } else {
+                        counter.innerText = target + '+';
+                    }
+                };
+                updateCount();
+            };
+
+            // Intersection Observer for counters
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => counterObserver.observe(counter));
+        }
+
+        // Scroll Animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all cards and sections
+            document.querySelectorAll('.feature-card, .pricing-card, .testimonial-card, .contact-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        }
+
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -546,14 +702,57 @@
             });
         });
 
-        // Navbar scroll effect
+        // Navbar scroll effect with parallax
+        let lastScroll = 0;
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
+            const currentScroll = window.scrollY;
+            
+            if (currentScroll > 50) {
                 navbar.classList.add('navbar-scrolled');
             } else {
                 navbar.classList.remove('navbar-scrolled');
             }
+
+            // Parallax effect for hero content
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent && currentScroll < window.innerHeight) {
+                heroContent.style.transform = `translateY(${currentScroll * 0.5}px)`;
+                heroContent.style.opacity = 1 - (currentScroll / window.innerHeight);
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Add hover effect to buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px) scale(1.02)';
+            });
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add tilt effect to cards
+        document.querySelectorAll('.pricing-card, .feature-card').forEach(card => {
+            card.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+            });
         });
     </script>
 </body>

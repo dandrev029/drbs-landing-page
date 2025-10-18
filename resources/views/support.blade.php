@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Support - DRBS Internet</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/drbs-logo-small.png') }}">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +17,33 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Custom CSS -->
     @vite(['resources/css/app.css', 'resources/css/crypto-theme.css', 'resources/js/app.js'])
+
+    <style>
+        /* Telegram Support Button Hover Effect */
+        .telegram-support-btn {
+            background: linear-gradient(135deg, #0088cc 0%, #00bcd4 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .telegram-support-btn:hover {
+            background: linear-gradient(135deg, #006699 0%, #0099cc 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 136, 204, 0.5);
+        }
+
+        .telegram-support-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 3px 10px rgba(0, 136, 204, 0.4);
+        }
+    </style>
 </head>
 <body>
 
@@ -21,7 +51,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="/">
-                <i class="bi bi-wifi me-2 fs-4"></i>
+                <img src="{{ asset('images/drbs-logo-small.png') }}" alt="DRBS Logo" style="height: 40px; width: 40px; object-fit: contain;" class="me-2" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                <i class="bi bi-wifi me-2 fs-4" style="display: none;"></i>
                 <span class="fw-bold">DRBS Internet</span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -117,14 +148,7 @@
                                 <p class="text-muted">Fill out the form below and we'll get back to you as soon as possible.</p>
                             </div>
 
-                            <!-- Success/Error Messages -->
-                            @if(session('success'))
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                <i class="bi bi-check-circle-fill me-2"></i>{{ session('success') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                            @endif
-
+                            <!-- Error Messages (Success now shown in modal) -->
                             @if(session('error'))
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ session('error') }}
@@ -289,6 +313,14 @@
                                         <p class="text-muted">Enter your ticket ID or email address to check the status of your support ticket.</p>
                                     </div>
 
+                                    <!-- Error Messages for Tracking -->
+                                    @if(session('error') && old('track_input'))
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ session('error') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    @endif
+
                                     <form id="trackTicketForm" method="POST" action="{{ route('ticket.track') }}">
                                         @csrf
                                         <div class="mb-3">
@@ -297,7 +329,7 @@
                                                 <span class="input-group-text bg-light">
                                                     <i class="bi bi-search"></i>
                                                 </span>
-                                                <input type="text" class="form-control" id="trackInput" name="track_input" placeholder="Enter ticket ID (e.g., TKT-12345) or email" required>
+                                                <input type="text" class="form-control" id="trackInput" name="track_input" value="{{ old('track_input') }}" placeholder="Enter ticket ID (e.g., TKT-12345) or email" required>
                                                 <button class="btn btn-primary px-5" type="submit">
                                                     Track Status
                                                 </button>
@@ -343,6 +375,17 @@
                                                 <hr>
                                                 <h6 class="fw-bold mb-3">Description</h6>
                                                 <p class="mb-0">{{ $ticket->description }}</p>
+
+                                                <!-- Chat with Support Button -->
+                                                <div class="mt-4 text-center">
+                                                    <a href="https://t.me/CampaSupport_bot" target="_blank" class="btn btn-lg px-5 py-3 telegram-support-btn">
+                                                        <i class="bi bi-telegram me-2" style="font-size: 1.3rem;"></i>
+                                                        Chat with Support on Telegram
+                                                    </a>
+                                                    <p class="text-muted mt-2 mb-0" style="font-size: 0.9rem;">
+                                                        <i class="bi bi-lightning-charge-fill me-1"></i>Get instant responses from our support team
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -530,7 +573,7 @@
                                         <li>Verify all cables are properly connected</li>
                                         <li>Restart your router and modem</li>
                                         <li>Check if there's a service outage in your area</li>
-                                        <li>If nothing works, call our emergency hotline: +1-234-567-890</li>
+                                        <li>If nothing works, call our emergency hotline: +639534953231</li>
                                     </ol>
                                 </div>
                             </div>
@@ -545,15 +588,17 @@
                             </h2>
                             <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    You can pay through multiple channels:
+                                    <p class="mb-3">You can pay through the following channels:</p>
                                     <ul>
                                         <li>Online banking transfer to our account</li>
-                                        <li>Payment centers (7-Eleven, Bayad Center, etc.)</li>
-                                        <li>GCash or PayMaya</li>
-                                        <li>Credit/Debit card through our website</li>
-                                        <li>Cash payment to our authorized collectors</li>
+                                        <li>GCash</li>
                                     </ul>
-                                    Your account number must be included in the payment reference.
+                                    <p class="mb-2 fw-bold">After successful payment, follow these steps:</p>
+                                    <ol>
+                                        <li>Obtain your "Reference Number" from the payment confirmation.</li>
+                                        <li>Paste it into the Reference field on our form and hit Submit.</li>
+                                        <li>Wait 5-10 minutes for our system to validate your payment and send confirmation.</li>
+                                    </ol>
                                 </div>
                             </div>
                         </div>
@@ -605,8 +650,9 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
-                    <div class="footer-brand mb-4">
-                        <i class="bi bi-wifi me-2 fs-4"></i>
+                    <div class="footer-brand mb-4 d-flex align-items-center">
+                        <img src="{{ asset('images/drbs-logo-small.png') }}" alt="DRBS Logo" style="height: 40px; width: 40px; object-fit: contain;" class="me-2" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                        <i class="bi bi-wifi me-2 fs-4" style="display: none;"></i>
                         <span class="fw-bold fs-5">DRBS Internet</span>
                     </div>
                     <p class="text-muted mb-4">Connecting communities with fast, reliable, and affordable internet services designed for modern living.</p>
@@ -655,11 +701,123 @@
         </div>
     </footer>
 
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border: 1px solid rgba(213, 255, 64, 0.2); border-radius: 16px; overflow: hidden; background: #1A1A3E; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(213, 255, 64, 0.15);">
+                <div class="modal-body text-center p-5">
+                    <!-- Success Icon -->
+                    <div class="mb-4">
+                        <div class="d-inline-flex align-items-center justify-content-center" style="width: 100px; height: 100px; background: rgba(213, 255, 64, 0.15); border: 3px solid #D5FF40; border-radius: 50%; box-shadow: 0 10px 30px rgba(213, 255, 64, 0.4);">
+                            <i class="bi bi-check-circle-fill" style="font-size: 3.5rem; color: #D5FF40;"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Title -->
+                    <h3 class="fw-bold mb-3" style="color: #FFFFFF;">Ticket Submitted Successfully!</h3>
+                    
+                    <!-- Message -->
+                    <p class="mb-4" id="ticketMessage" style="font-size: 1.1rem; color: #C0C2BB;"></p>
+                    
+                    <!-- Ticket Number Card -->
+                    <div class="p-4 mb-4" style="background: rgba(213, 255, 64, 0.1); border: 1px solid rgba(213, 255, 64, 0.3); border-radius: 12px;">
+                        <p class="mb-2" style="font-size: 0.875rem; color: #8A8A9E; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Your Ticket ID</p>
+                        <h4 class="fw-bold mb-0" id="ticketNumber" style="letter-spacing: 2px; color: #D5FF40; font-size: 1.5rem;"></h4>
+                    </div>
+                    
+                    <!-- Info Text -->
+                    <p class="mb-4" style="font-size: 0.95rem; color: #C0C2BB;">
+                        <i class="bi bi-clock me-2" style="color: #D5FF40;"></i>We will contact you shortly to resolve your issue.
+                    </p>
+                    
+                    <!-- Primary Button -->
+                    <button type="button" class="btn btn-lg px-5" data-bs-dismiss="modal" style="background: #D5FF40; color: #0C0C2B; border: none; border-radius: 8px; font-weight: 700; box-shadow: 0 4px 20px rgba(213, 255, 64, 0.3); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);" onmouseover="this.style.background='#E5FF70'; this.style.boxShadow='0 6px 30px rgba(213, 255, 64, 0.5)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='#D5FF40'; this.style.boxShadow='0 4px 20px rgba(213, 255, 64, 0.3)'; this.style.transform='translateY(0)';">
+                        <i class="bi bi-check-lg me-2"></i>Got it, Thanks!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <!-- Support Page Scripts -->
     <script>
+        // Show success modal if there's a success message
+        @if(session('success'))
+        document.addEventListener('DOMContentLoaded', function() {
+            const successMessage = @json(session('success'));
+
+            // Extract ticket number from message
+            const ticketMatch = successMessage.match(/TKT-[A-Z0-9]+/);
+            const ticketNumber = ticketMatch ? ticketMatch[0] : '';
+
+            // Set modal content
+            document.getElementById('ticketMessage').textContent = 'Your support ticket has been submitted successfully!';
+            document.getElementById('ticketNumber').textContent = ticketNumber;
+
+            // Show the modal
+            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            successModal.show();
+
+            // Scroll to top for better UX
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Reset form after modal is shown
+            setTimeout(function() {
+                const form = document.querySelector('#new-ticket form');
+                if (form) {
+                    form.reset();
+                }
+            }, 500);
+        });
+        @endif
+
+        // Switch to Track Ticket tab when ticket tracking is used (success or error)
+        @if(session('ticket') || (session('error') && old('track_input')))
+        document.addEventListener('DOMContentLoaded', function() {
+            // Activate the Track Ticket tab
+            const trackTicketTab = document.getElementById('track-ticket-tab');
+            const trackTicketPane = document.getElementById('track-ticket');
+            const newTicketTab = document.getElementById('new-ticket-tab');
+            const newTicketPane = document.getElementById('new-ticket');
+
+            // Switch tabs using Bootstrap 5 API
+            const trackTab = new bootstrap.Tab(trackTicketTab);
+            trackTab.show();
+
+            // Wait for tab transition to complete, then scroll to results or error
+            setTimeout(function() {
+                const ticketStatus = document.getElementById('ticketStatus');
+                const trackTicketPane = document.getElementById('track-ticket');
+
+                if (ticketStatus) {
+                    // Scroll to the ticket status with smooth behavior
+                    ticketStatus.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+
+                    // Add a highlight animation to draw attention
+                    ticketStatus.style.transition = 'all 0.3s ease';
+                    ticketStatus.style.boxShadow = '0 0 20px rgba(102, 126, 234, 0.5)';
+
+                    // Remove highlight after 2 seconds
+                    setTimeout(function() {
+                        ticketStatus.style.boxShadow = '';
+                    }, 2000);
+                } else if (trackTicketPane) {
+                    // If no ticket found (error case), scroll to the track ticket form area
+                    trackTicketPane.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }, 300);
+        });
+        @endif
+
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');

@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin Dashboard - DRBS Internet</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/drbs-logo-small.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
@@ -65,8 +68,10 @@
             <!-- Sidebar -->
             <div class="col-md-2 sidebar p-0">
                 <div class="p-4">
-                    <h4 class="mb-4">
-                        <i class="bi bi-wifi me-2"></i>DRBS Admin
+                    <h4 class="mb-4 d-flex align-items-center">
+                        <img src="{{ asset('images/drbs-logo-small.png') }}" alt="DRBS Logo" style="height: 32px; width: 32px; object-fit: contain;" class="me-2" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                        <i class="bi bi-wifi me-2" style="display: none;"></i>
+                        <span>DRBS Admin</span>
                     </h4>
                     <nav class="nav flex-column">
                         <a class="nav-link active" href="{{ route('admin.dashboard') }}">

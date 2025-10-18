@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Register - DRBS Internet</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/drbs-logo-small.png') }}">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +24,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="/">
-                <i class="bi bi-wifi me-2 fs-4"></i>
+                <img src="{{ asset('images/drbs-logo-small.png') }}" alt="DRBS Logo" style="height: 40px; width: 40px; object-fit: contain;" class="me-2" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                <i class="bi bi-wifi me-2 fs-4" style="display: none;"></i>
                 <span class="fw-bold">DRBS Internet</span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -396,7 +400,7 @@
 
                     <!-- Help Section -->
                     <div class="text-center mt-5">
-                        <p class="text-muted">Need help? <a href="/support" class="text-decoration-none fw-medium">Contact our support team</a> or call us at <strong>+1-234-567-890</strong></p>
+                        <p class="text-muted">Need help? <a href="/support" class="text-decoration-none fw-medium">Contact our support team</a> or call us at <strong>+639534953231</strong></p>
                     </div>
                 </div>
 
@@ -464,8 +468,9 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
-                    <div class="footer-brand mb-4">
-                        <i class="bi bi-wifi me-2 fs-4"></i>
+                    <div class="footer-brand mb-4 d-flex align-items-center">
+                        <img src="{{ asset('images/drbs-logo-small.png') }}" alt="DRBS Logo" style="height: 40px; width: 40px; object-fit: contain;" class="me-2" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                        <i class="bi bi-wifi me-2 fs-4" style="display: none;"></i>
                         <span class="fw-bold fs-5">DRBS Internet</span>
                     </div>
                     <p class="text-muted mb-4">Connecting communities with fast, reliable, and affordable internet services designed for modern living.</p>
