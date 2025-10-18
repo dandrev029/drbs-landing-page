@@ -307,38 +307,42 @@
 
                                     <!-- Ticket Status Display -->
                                     @if(session('ticket'))
+                                    @php
+                                        /** @var \App\Models\Ticket $ticket */
+                                        $ticket = session('ticket');
+                                    @endphp
                                     <div id="ticketStatus" class="mt-4">
                                         <div class="card bg-light border-0">
                                             <div class="card-body p-4">
                                                 <div class="d-flex justify-content-between align-items-start mb-3">
                                                     <div>
-                                                        <h5 class="fw-bold mb-1">Ticket #{{ session('ticket')->ticket_number }}</h5>
-                                                        <p class="text-muted mb-0">{{ session('ticket')->subject }}</p>
+                                                        <h5 class="fw-bold mb-1">Ticket #{{ $ticket->ticket_number }}</h5>
+                                                        <p class="text-muted mb-0">{{ $ticket->subject }}</p>
                                                     </div>
-                                                    <span class="badge bg-{{ session('ticket')->status_color }} px-3 py-2">{{ ucfirst(str_replace('_', ' ', session('ticket')->status)) }}</span>
+                                                    <span class="badge bg-{{ $ticket->status_color }} px-3 py-2">{{ ucfirst(str_replace('_', ' ', $ticket->status)) }}</span>
                                                 </div>
                                                 <hr>
                                                 <div class="row g-3">
                                                     <div class="col-md-6">
                                                         <small class="text-muted d-block">Created</small>
-                                                        <strong>{{ session('ticket')->created_at->format('M d, Y g:i A') }}</strong>
+                                                        <strong>{{ $ticket->created_at->format('M d, Y g:i A') }}</strong>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <small class="text-muted d-block">Last Updated</small>
-                                                        <strong>{{ session('ticket')->updated_at->format('M d, Y g:i A') }}</strong>
+                                                        <strong>{{ $ticket->updated_at->format('M d, Y g:i A') }}</strong>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <small class="text-muted d-block">Priority</small>
-                                                        <span class="badge bg-{{ session('ticket')->priority_color }}">{{ ucfirst(session('ticket')->priority) }}</span>
+                                                        <span class="badge bg-{{ $ticket->priority_color }}">{{ ucfirst($ticket->priority) }}</span>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <small class="text-muted d-block">Category</small>
-                                                        <strong>{{ session('ticket')->category_name }}</strong>
+                                                        <strong>{{ $ticket->category_name }}</strong>
                                                     </div>
                                                 </div>
                                                 <hr>
                                                 <h6 class="fw-bold mb-3">Description</h6>
-                                                <p class="mb-0">{{ session('ticket')->description }}</p>
+                                                <p class="mb-0">{{ $ticket->description }}</p>
                                             </div>
                                         </div>
                                     </div>
