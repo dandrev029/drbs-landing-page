@@ -1,4 +1,4 @@
-FROM php:8.1-fpm
+FROM php:8.1-apache
 
 # Set working directory
 WORKDIR /var/www/html
@@ -13,8 +13,6 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     zip \
     unzip \
-    nginx \
-    supervisor \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -39,15 +37,17 @@ COPY . /var/www/html
 # Run composer scripts after all files are copied (while composer.ini is still active)
 RUN composer dump-autoload --optimize
 
-# Copy nginx configuration
-COPY docker/nginx/default.conf /etc/nginx/sites-available/default
+# Enable Apache modules
+RUN a2enmod rewrite headers expires
 
-# Copy supervisor configuration
-COPY docker/supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+# Set ServerName globally to suppress warning
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+# Copy Apache configuration
+COPY docker/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
 
 # Copy PHP configuration for runtime (this will override composer.ini with secure settings)
 COPY docker/php/local.ini /usr/local/etc/php/conf.d/local.ini
-COPY docker/php/php-fpm.conf /usr/local/etc/php-fpm.d/www.conf
 
 # Create necessary directories and set permissions
 RUN mkdir -p /var/www/html/storage/framework/cache \
@@ -73,5 +73,5 @@ EXPOSE 80
 HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
     CMD curl -f http://localhost/health || exit 1
 
-# Start supervisor
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+# Start Apache
+CMD ["apache2-foreground"]

@@ -12,8 +12,7 @@ services:
     networks:
       - drbs-network
     depends_on:
-      db:
-        condition: service_healthy
+      - db
     environment:
       - APP_NAME=DRBS Landing Page
       - APP_ENV=production
@@ -71,21 +70,20 @@ services:
     command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-Pa$$w*rd@DanDrev029}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 30s
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 60s
 
   cloudflared:
     image: cloudflare/cloudflared:latest
     container_name: drbs-cloudflare-tunnel
     restart: unless-stopped
-    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN:-}
     networks:
       - drbs-network
     depends_on:
-      app:
-        condition: service_healthy
+      - app
     security_opt:
       - no-new-privileges:true
     cap_drop:
@@ -103,9 +101,6 @@ services:
 networks:
   drbs-network:
     driver: bridge
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16
 
 volumes:
   dbdata:
